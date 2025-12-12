@@ -1,6 +1,6 @@
 from authlib.integrations.flask_client import OAuth
 from flask import url_for,current_app,session
-from model import db,user
+from models import db,user
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import login_user
 
@@ -45,3 +45,21 @@ def handle_oauth_callback(provider_name,token):
     # Login the user
     login_user(user)
     return user
+
+def create_local_user(email,password,name):
+    #check if user already exists
+    existing_user = user.query.filter_by(email = email).first()
+    if existing_user:
+        return None
+    #create new user
+    password_hash = generate_password_hash(password)
+    new_user = user(email = email, passward_hash = password_hash, name = name)
+    db.session.add(new_user)
+    db.session.commit()
+    return new_user
+
+
+def verify_local_user(email,password):
+    u = user.query.filter_by(email = email).first()
+    if u and check_password_hash(u.passward_hash,password):
+        return u

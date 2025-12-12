@@ -1,0 +1,334 @@
+/* Modern, Eye-Catching Design */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+/* Navigation Bar */
+nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+nav a:first-child {
+  font-size: 1.2rem;
+  color: #764ba2;
+  margin-right: auto;
+}
+
+/* Main Content Area */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Flash Messages */
+.flashes {
+  list-style: none;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1.5rem;
+}
+
+.flash {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flash.success {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
+  border-left: 4px solid #28a745;
+}
+
+.flash.warning {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  color: #856404;
+  border-left: 4px solid #ffc107;
+}
+
+.flash.danger {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  color: #721c24;
+  border-left: 4px solid #dc3545;
+}
+
+/* Card Containers */
+h1, h2 {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px 16px 0 0;
+  margin: 0;
+  color: #764ba2;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+}
+
+main > p, main > form, main > hr, main > a {
+  background: white;
+  padding: 0 2rem 2rem 2rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+main > h1 + p, main > h2 + form {
+  padding-top: 0;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Forms */
+form {
+  background: white;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+input[type="submit"],
+button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+}
+
+input[type="submit"]:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+input[type="submit"]:active,
+button:active {
+  transform: translateY(0);
+}
+
+/* OAuth Login Buttons */
+hr {
+  border: none;
+  border-top: 2px solid #e0e0e0;
+  margin: 2rem 0 1.5rem 0;
+  background: white;
+}
+
+main > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1rem;
+  background: white;
+  padding: 0 2rem;
+}
+
+main > a, form + hr + p + a {
+  display: block;
+  padding: 1rem;
+  margin: 0.7rem 2rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main > a:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* OAuth specific buttons */
+a[href*="google"] {
+  background: white;
+  border-color: #db4437;
+  color: #db4437;
+}
+
+a[href*="google"]:hover {
+  background: #db4437;
+  color: white;
+}
+
+a[href*="github"] {
+  background: white;
+  border-color: #333;
+  color: #333;
+}
+
+a[href*="github"]:hover {
+  background: #333;
+  color: white;
+}
+
+a[href*="facebook"] {
+  background: white;
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+a[href*="facebook"]:hover {
+  background: #1877f2;
+  color: white;
+}
+
+/* Profile Page Styling */
+main > h2 + p {
+  background: white;
+  padding: 1rem 2rem;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.05rem;
+}
+
+main > h2 + p:last-of-type {
+  border-bottom: none;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Home Page Welcome */
+main > h1 {
+  font-size: 2.5rem;
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+main > h1 + p {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+main > h1 + p a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+main > h1 + p a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  h1, h2 {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  input[type="submit"],
+  button {
+    padding: 0.9rem;
+  }
+}

@@ -3,11 +3,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BASE_DIR = os.path.dirname(os.path.abspath("C:\Users\Jyotsna\Desktop\Omkar personal folder\something-new"))
+BASE_DIR = os.path.dirname(os.path.abspath(r"C:\Users\Jyotsna\Desktop\Omkar personal folder\something-new"))
+# SQLALCHEMY_DATABASE_URI = os.e"sqlite:///" + os.path.join(BASE_DIR, "app.db"))
 
-class config:
-    SECRET_KEY = os.getenv.__get__("SECRET_KEY")
-    DATABSE_URL = os.getenv.__get__("DATABASE_URL")
+class Config:
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "app.db")
     sqlalchemy_track_modifications = False
 
     #oAuth credential( set these in your enviroment)

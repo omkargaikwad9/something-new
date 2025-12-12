@@ -5,7 +5,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 
-class user(UserMixin,db.model):
+class user(UserMixin,db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(256),unique = True, nullable = True, index = True)
